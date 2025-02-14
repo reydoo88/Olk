@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенаправлення...</title>
+    <script>
+        // Секунда затримки, щоб перевірити, чи не відкриється сторінка в WebView
+        setTimeout(function() {
+            // Для Android
+            if (navigator.userAgent.includes("Android")) {
+                window.location.href = "intent://google.com#Intent;scheme=https;package=com.android.chrome;end;";
+            }
+            // Для iOS
+            else if (navigator.userAgent.includes("iPhone") || navigator.userAgent.includes("iPad")) {
+                window.location.href = "https://google.com";
+            }
+            // Для інших браузерів
+            else {
+                window.location.href = "https://google.com";
+            }
+        }, 100);
+    </script>
+</head>
+<body>
+    <p>Якщо перенаправлення не відбулося, <a href="https://google.com">натисніть тут</a>.</p>
+</body>
+</html>
